@@ -1,0 +1,2 @@
+location_id,location_name, street_number, street_name, address2, city, state, zipcode, latitude, longitude, created_at, created_by, modified_at, modified_by
+123453,shrini,abc,achamane,ullur, kunda, karna,576219, 12345,12345,2023/05/03,raghav,2023/05/03, raghav

@@ -1,0 +1,24 @@
+{
+    "folderConfig":{
+      "path": "/Users/raghavendra/Documents/personalProject/filereader/csvfile"
+    },
+    "filetype":"CSV",
+    "delimitter": ",",
+    "bulkSize": "1",
+    "columnMap":{
+      "locationID": "location_id",
+      "locationName": "location_name",
+      "streetNumber": "street_number",
+      "streetName": "street_name",
+      "address2": "address2",
+      "city": "city",
+      "state": "state",
+      "zipCode": "zipCode",
+      "latitude": "latitude",
+      "longitude": "longitude",
+      "created": "created_at",
+      "createdBy": "created_by",
+      "modified": "modified_at",
+      "modifiedBy": "modified_by"
+    }
+  }
