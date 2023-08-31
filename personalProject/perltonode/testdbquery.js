@@ -12,7 +12,7 @@ async function dbConnect(inst) {
         const connection = await oracledb.getConnection(dbConfig);
         connection.autoCommit = false; // Don't commit automatically
         await connection.execute("alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'");
-
+        executeStatement(connection)
         return connection;
     } catch (error) {
         console.error(`Error connecting to ${inst}: ${error.message}`);
@@ -22,8 +22,11 @@ async function dbConnect(inst) {
 
 async function executeStatement(connection, query, bindData) {
     try {
+
+        let sql =`
+        SELECT parcel_number FROM crawler_parcels1
+      `
         const binds = {
-            ...bindData
         };
 
         const options = {
@@ -31,7 +34,7 @@ async function executeStatement(connection, query, bindData) {
             autoCommit: false
         };
 
-        const result = await connection.execute(query, binds, options);
+        const result = await connection.execute(sql, binds, options);
 
         await connection.commit();
 
@@ -41,8 +44,4 @@ async function executeStatement(connection, query, bindData) {
     }
 }
 
-module.exports = {
-    dbConnect : dbConnect,
-    executeStatement: executeStatement
-}
-// module.exports.main = {};
+dbConnect()
